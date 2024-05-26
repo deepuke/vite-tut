@@ -1,14 +1,18 @@
 {
   "name": "pluck",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "main": "./dist/main.umd.cjs",
+  "main": "./dist/main.cjs",
   "module": "./dist/main.js",
   "exports": {
     ".": {
       "import": "./dist/main.js",
-      "require": "./dist/main.umd.cjs"
+      "require": "./dist/main.cjs"
+    },
+    "./log" : {
+      "import": "./dist/log.js",
+      "require": "./dist/log.cjs"
     }
   },
   "scripts": {

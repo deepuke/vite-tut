@@ -15,10 +15,19 @@ export default defineConfig(({ command, mode }) => {
     plugins: [vue()],
     build: {
       lib: {
-        entry: resolve(__dirname, 'src/main.js'),
+        entry: [
+          resolve(__dirname, 'src/main.js'),
+          resolve(__dirname, 'src/log/log.js'),
+        ],
         name: 'Hello',
         format: ['iife'],
-        fileName: 'hello',
+        fileName: (format, name) => {
+          if (format === 'es') {
+            return `${name}.js`;
+          }
+
+          return `${name}.${format}`;
+        },
       },
     },
     resolve: {
